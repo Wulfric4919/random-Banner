@@ -1,3 +1,10 @@
+import os
+
+directory = "path/to/directory"
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
+
 """ Random banner app
 """
 
