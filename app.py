@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route("/")
 def root_text():
     "Root page"
-    return ("No contents in this page. §^ム^§")
+    return ("No contents in this page.")
 
 @app.route("/banner.png", methods=['GET'])
 def get_banner():
