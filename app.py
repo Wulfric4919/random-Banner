@@ -62,3 +62,5 @@ def after_request(responce):
     "modify responce header"
     responce.headers.update(headers)
     return responce
+
+app.run()
