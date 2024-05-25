@@ -48,37 +48,6 @@ for banner in glob("./static/banners/*.png"):
         view_func=StaticBanner.as_view(os.path.basename(banner), banner, "image/png")
         )
 
-# favicon: favicon.ico, favicon.png, site.webmanifest etc.
-class Favicon(View):
-    "dinamic dispatch class for favicon"
-    methods = ['GET']
-    def __init__(self, material, mime):
-        self.material = material
-        self.material_abspath = os.path.abspath(f"./static/{material}")
-        self.mime = mime
-
-    def dispatch_request(self):
-        return send_file(self.material_abspath, mimetype=self.mime)
-
-# favicons in this site
-favicon_materials = {
-    "android-chrome-192x192.png": "image/png",
-    "android-chrome-512x512.png": "image/png",
-    "apple-touch-icon.png": "image/png",
-    "favicon-16x16.png": "image/png",
-    "favicon-32x32.png": "image/png",
-    "favicon.ico": "image/vnd.microsoft.icon",
-    "favicon.png": "image/png",
-    "site.webmanifest": "application/manifest+json"
-}
-
-# add url rule for favicons
-for material, mime in favicon_materials.items():
-    app.add_url_rule(
-        f"/{material}",
-        view_func=Favicon.as_view(material, material, mime)
-    )
-
 # responce headers
 # see https://www.kosh.dev/article/10/#2-security-considerations
 headers = {
