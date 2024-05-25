@@ -19,14 +19,14 @@ def root_text():
 @app.route("/banner.png", methods=['GET'])
 def get_banner():
     "Returns random banner"
-    banners = glob("./static/banners/*.png")
+    banners = glob("./static/banner/*.png")
     banner = choice(banners)
     return redirect(url_for(os.path.basename(banner)))
 
 @app.route("/gallery", methods=['GET'])
 def gallery():
     "return gallery"
-    banners = glob("./static/banners/*.png")
+    banners = glob("./static/banner/*.png")
     return render_template("gallery.html", banners=banners)
 
 class StaticBanner(View):
@@ -42,7 +42,7 @@ class StaticBanner(View):
         resp.headers['Cache-Control'] = "max-age=604800"
         return resp
 
-for banner in glob("./static/banners/*.png"):
+for banner in glob("./static/banner/*.png"):
     app.add_url_rule(
         f"/{os.path.basename(banner)}",
         view_func=StaticBanner.as_view(os.path.basename(banner), banner, "image/png")
