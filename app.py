@@ -63,4 +63,4 @@ def after_request(responce):
     responce.headers.update(headers)
     return responce
 
-app.run()
+app.run(debug=True)
