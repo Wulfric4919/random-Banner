@@ -1,6 +1,3 @@
-$ gunicorn -w 4 -b 0.0.0.0 'hello:create_app()'
-Listening at: http://0.0.0.0:8000 (x)
-
 """ Random banner app
 """
 
