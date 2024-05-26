@@ -1,3 +1,7 @@
+# 環境変数PORTを設定せずにサーバを起動
+node app.js
+
+
 """ Random banner app
 """
 
