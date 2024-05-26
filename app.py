@@ -1,6 +1,5 @@
-# 環境変数PORTを設定せずにサーバを起動
-node app.js
-
+$ gunicorn -w 4 -b 0.0.0.0 'hello:create_app()'
+Listening at: http://0.0.0.0:8000 (x)
 
 """ Random banner app
 """
