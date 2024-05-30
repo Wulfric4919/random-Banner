@@ -16,7 +16,7 @@ def root_text():
     "Root page"
     return ("No contents in this page.")
 
-@app.route("/banner.png", methods=['GET'])
+@app.route("/banne.png", methods=['GET'])
 def get_banner():
     "Returns random banner"
     banners = glob("./static/banners/*.png")
