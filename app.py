@@ -23,6 +23,13 @@ def get_banner():
     banner = choice(banners)
     return redirect(url_for(os.path.basename(banner)))
 
+@app.route("/bann.png", methods=['GET'])
+def get_bann():
+    "Returns random banner"
+    banns = glob("./static/banners/*.png")
+    bann = choice(banns)
+    return redirect(url_for(os.path.basename(bann)))
+
 @app.route("/gallery", methods=['GET'])
 def gallery():
     "return gallery"
