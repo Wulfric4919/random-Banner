@@ -23,7 +23,7 @@ def get_banner():
     banner = choice(banners)
     return redirect(url_for(os.path.basename(banner)))
 
-@app.route("/jinja.png", methods=['GET'])
+@app.route("/banner.png", methods=['GET'])
 def get_jinja():
     "Returns random banner"
     jinjas = glob("./static/jinjas/*.png")
