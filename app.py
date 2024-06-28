@@ -23,12 +23,19 @@ def get_banner():
     banner = choice(banners)
     return redirect(url_for(os.path.basename(banner)))
 
-@app.route("/bann.png", methods=['GET'])
-def get_bann():
+@app.route("/jinja.png", methods=['GET'])
+def get_jinja():
     "Returns random banner"
-    banns = glob("./static/banners/*.png")
-    bann = choice(banns)
-    return redirect(url_for(os.path.basename(bann)))
+    jinjas = glob("./static/jinjas/*.png")
+    jinja = choice(jinjas)
+    return redirect(url_for(os.path.basename(jinja)))
+
+@app.route("/jinja.gif", methods=['GET'])
+def get_jinja2():
+    "Returns random banner"
+    jinja2s = glob("./static/jinjas/*.gif")
+    jinja2 = choice(jinja2s)
+    return redirect(url_for(os.path.basename(jinja2)))
 
 @app.route("/gallery", methods=['GET'])
 def gallery():
