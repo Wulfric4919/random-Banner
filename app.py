@@ -37,6 +37,13 @@ def get_jinja2():
     jinja2 = choice(jinja2s)
     return redirect(url_for(os.path.basename(jinja2)))
 
+@app.route("/placeholder.png.", methods=['GET'])
+def get_placeholder():
+    "Returns random banner"
+    placeholders = glob("./static/placeholders/*.png")
+    placeholder = choice(placeholders)
+    return redirect(url_for(os.path.basename(placeholder)))
+
 @app.route("/gallery", methods=['GET'])
 def gallery():
     "return gallery"
@@ -72,7 +79,11 @@ for jinja2 in glob("./static/jinjas/*.gif"):
         f"/{os.path.basename(jinja2)}",
         view_func=StaticBanner.as_view(os.path.basename(jinja2), jinja2, "image/gif")
     )
-
+for placeholder in glob("./static/placeholders/*.png"):
+    app.add_url_rule(
+        f"/{os.path.basename(placeholder)}",
+        view_func=StaticBanner.as_view(os.path.basename(placeholder), placeholder, "image/png")
+    )
 # responce headers
 # see https://www.kosh.dev/article/10/#2-security-considerations
 headers = {
