@@ -37,7 +37,7 @@ def get_jinja2():
     jinja2 = choice(jinja2s)
     return redirect(url_for(os.path.basename(jinja2)))
 
-@app.route("/place.png.", methods=['GET'])
+@app.route("/place.png", methods=['GET'])
 def get_place():
     "Returns random banner"
     places = glob("./static/placeholders/*.png")
