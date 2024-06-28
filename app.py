@@ -79,7 +79,7 @@ for jinja2 in glob("./static/jinjas/*.gif"):
         f"/{os.path.basename(jinja2)}",
         view_func=StaticBanner.as_view(os.path.basename(jinja2), jinja2, "image/gif")
     )
-for placeholder in glob("./static/placeholders/*.png"):
+for place in glob("./static/placeholders/*.png"):
     app.add_url_rule(
         f"/{os.path.basename(place)}",
         view_func=StaticBanner.as_view(os.path.basename(place), place, "image/png")
