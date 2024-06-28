@@ -61,6 +61,17 @@ for banner in glob("./static/banners/*.png"):
         f"/{os.path.basename(banner)}",
         view_func=StaticBanner.as_view(os.path.basename(banner), banner, "image/png")
         )
+for jinja in glob("./static/jinjas/*.png"):
+    app.add_url_rule(
+        f"/{os.path.basename(jinja)}",
+        view_func=StaticBanner.as_view(os.path.basename(jinja), jinja, "image/png")
+    )
+
+for jinja2 in glob("./static/jinjas/*.gif"):
+    app.add_url_rule(
+        f"/{os.path.basename(jinja2)}",
+        view_func=StaticBanner.as_view(os.path.basename(jinja2), jinja2, "image/gif")
+    )
 
 # responce headers
 # see https://www.kosh.dev/article/10/#2-security-considerations
